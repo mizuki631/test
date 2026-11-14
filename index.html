@@ -9,218 +9,444 @@
 <style>
 * {
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
     font-family: "Yu Gothic", "Meiryo", sans-serif;
-    color: #29234b;
-    background: linear-gradient(135deg, #f4efff, #e8f1ff);
+    color: white;
+    background: #080817;
     line-height: 1.8;
+    overflow-x: hidden;
+}
+
+/* 背景のネオン */
+body::before {
+    content: "";
+    position: fixed;
+    width: 650px;
+    height: 650px;
+    top: -200px;
+    left: -200px;
+    border-radius: 50%;
+    background: #762dff;
+    filter: blur(180px);
+    opacity: 0.3;
+    animation: glow 8s infinite alternate;
+    pointer-events: none;
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    right: -200px;
+    bottom: -200px;
+    border-radius: 50%;
+    background: #006eff;
+    filter: blur(180px);
+    opacity: 0.25;
+    animation: glow 10s infinite alternate-reverse;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes glow {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(100px, 80px) scale(1.3); }
 }
 
 /* ヘッダー */
 header {
-    padding: 55px 20px 40px;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    color: white;
-    background: linear-gradient(120deg, #30205e, #6255a8, #536fc1);
+    padding: 50px 20px;
+    position: relative;
+    background:
+        linear-gradient(rgba(5, 5, 25, 0.35), rgba(5, 5, 25, 0.8)),
+        url("https://images.unsplash.com/photo-1506157786151-b8491531f063?w=1600")
+        center / cover;
+    overflow: hidden;
+}
+
+header .sub-title {
+    color: #c6aaff;
+    letter-spacing: 7px;
+    font-size: 14px;
+    animation: fadeUp 1s both;
 }
 
 header h1 {
-    margin: 0;
-    font-size: 38px;
-    letter-spacing: 3px;
+    margin: 15px 0;
+    font-size: clamp(45px, 9vw, 100px);
+    line-height: 1.15;
+    font-weight: 900;
+    letter-spacing: 4px;
+    background: linear-gradient(90deg, #ffffff, #b99aff, #55c8ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 40px rgba(139, 91, 255, 0.3);
+    animation: fadeUp 1.3s both;
 }
 
 header p {
-    margin: 10px 0 0;
-    color: #e8e4ff;
-    letter-spacing: 2px;
+    color: #e2dafa;
+    font-size: 17px;
+    letter-spacing: 3px;
+    animation: fadeUp 1.7s both;
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 35px;
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: #c6b5ff;
+    animation: float 2s infinite;
+}
+
+.scroll-down span {
+    display: block;
+    font-size: 24px;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
 }
 
 /* ナビゲーション */
 nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
     display: flex;
     justify-content: center;
-    gap: 35px;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.85);
+    gap: 45px;
+    padding: 17px;
+    background: rgba(8, 8, 25, 0.88);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(160, 120, 255, 0.3);
 }
 
 nav a {
-    color: #55448e;
+    color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 2px;
+    transition: 0.3s;
 }
 
 nav a:hover {
-    color: #9176d4;
+    color: #9e7aff;
+    text-shadow: 0 0 15px #a77cff;
 }
 
 /* メイン */
 main {
-    max-width: 1000px;
-    margin: 55px auto;
+    max-width: 1100px;
+    margin: 100px auto;
     padding: 0 25px;
 }
 
-/* メインビジュアル */
-.intro {
-    padding: 45px 35px;
-    margin-bottom: 55px;
-    border-radius: 20px;
-    color: white;
-    text-align: center;
-    background:
-        linear-gradient(rgba(35, 25, 75, 0.55), rgba(35, 25, 75, 0.7)),
-        url("https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=1400")
-        center / cover;
-}
-
-.intro h2 {
-    font-size: 27px;
-    margin-top: 0;
-}
-
-.intro p {
-    max-width: 650px;
-    margin: auto;
-}
-
-/* セクション */
 section {
-    margin-bottom: 65px;
+    margin-bottom: 130px;
+}
+
+/* セクション見出し */
+.section-label {
+    color: #a58aff;
+    font-size: 13px;
+    letter-spacing: 5px;
 }
 
 .section-title {
-    margin-bottom: 25px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid #c9b9ed;
-    color: #49377d;
-    font-size: 27px;
+    font-size: clamp(30px, 5vw, 48px);
+    margin: 5px 0 25px;
+    letter-spacing: 2px;
+}
+
+.section-title span {
+    color: #9d76ff;
 }
 
 .section-description {
-    margin-bottom: 25px;
+    color: #c2bddb;
+    max-width: 750px;
+    margin-bottom: 35px;
 }
 
-/* 曲のカード */
+/* イコライザー */
+.equalizer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    height: 50px;
+    margin: 25px 0;
+}
+
+.equalizer span {
+    display: block;
+    width: 5px;
+    height: 15px;
+    border-radius: 5px;
+    background: linear-gradient(#b88aff, #39c8ff);
+    animation: equalize 0.8s infinite alternate ease-in-out;
+}
+
+.equalizer span:nth-child(2n) {
+    animation-delay: 0.3s;
+}
+
+.equalizer span:nth-child(3n) {
+    animation-delay: 0.6s;
+}
+
+@keyframes equalize {
+    from { height: 8px; }
+    to { height: 42px; }
+}
+
+/* 曲カード */
 .music-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 22px;
 }
 
 .music-card {
-    padding: 25px;
+    position: relative;
+    padding: 30px;
+    min-height: 165px;
+    background: linear-gradient(135deg, rgba(38, 30, 75, 0.9), rgba(17, 26, 58, 0.9));
+    border: 1px solid rgba(160, 125, 255, 0.3);
     border-radius: 15px;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 5px 18px rgba(67, 48, 120, 0.09);
-    transition: transform 0.2s, box-shadow 0.2s;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.music-card::before {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    right: -60px;
+    top: -60px;
+    border-radius: 50%;
+    background: #8955ff;
+    filter: blur(65px);
+    opacity: 0.2;
+    transition: 0.4s;
 }
 
 .music-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 9px 23px rgba(67, 48, 120, 0.15);
+    transform: translateY(-8px) scale(1.02);
+    border-color: #a98aff;
+    box-shadow: 0 0 25px rgba(130, 90, 255, 0.35);
 }
 
-.music-card h3 {
-    margin: 0 0 5px;
-    color: #463578;
-    font-size: 19px;
-}
-
-.artist {
-    margin: 0;
-    color: #7664a8;
-    font-size: 14px;
+.music-card:hover::before {
+    opacity: 0.7;
 }
 
 .category {
     display: inline-block;
-    margin-bottom: 12px;
+    color: #c7aaff;
+    font-size: 11px;
+    letter-spacing: 2px;
+    border: 1px solid rgba(178, 143, 255, 0.5);
+    border-radius: 30px;
     padding: 3px 12px;
-    border-radius: 20px;
-    color: #55418b;
-    background: #eee8ff;
-    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.music-card h3 {
+    position: relative;
+    margin: 0 0 8px;
+    color: white;
+    font-size: 19px;
+}
+
+.artist {
+    position: relative;
+    color: #aaa5c9;
+    font-size: 13px;
+    margin: 0;
 }
 
 /* 演奏した曲 */
 .performance-box {
-    padding: 30px;
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 5px 18px rgba(67, 48, 120, 0.09);
+    padding: 40px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(45, 27, 83, 0.9), rgba(14, 34, 68, 0.9));
+    border: 1px solid rgba(140, 125, 255, 0.4);
+    box-shadow: 0 0 35px rgba(90, 70, 200, 0.12);
 }
 
 .performance-box h3 {
-    color: #49377d;
+    color: #bca2ff;
+    font-size: 24px;
+    border-left: 4px solid #9b6dff;
+    padding-left: 15px;
+    margin-top: 30px;
+}
+
+.performance-box h3:first-child {
     margin-top: 0;
 }
 
 .performance-box ul {
-    padding-left: 22px;
+    padding-left: 25px;
 }
 
 .performance-box li {
-    margin: 12px 0;
+    margin: 20px 0;
+    color: #ded9f4;
 }
 
 .performance-box strong {
-    color: #57448e;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.performance-box p {
+    color: #c2bddb;
+}
+
+/* About */
+.about-box {
+    padding: 40px;
+    text-align: center;
+    border-radius: 20px;
+    background: rgba(40, 31, 80, 0.6);
+    border: 1px solid rgba(150, 120, 255, 0.3);
+}
+
+.about-box p {
+    color: #d0cae9;
+}
+
+/* スクロールで登場 */
+.reveal {
+    opacity: 0;
+    transform: translateY(45px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* フッター */
 footer {
-    padding: 30px 20px;
+    padding: 55px 20px;
     text-align: center;
-    color: white;
-    background: linear-gradient(120deg, #30205e, #536fc1);
+    background: #070714;
+    border-top: 1px solid rgba(150, 120, 255, 0.35);
+}
+
+footer h2 {
+    color: #b99aff;
+    letter-spacing: 4px;
 }
 
 footer a {
-    margin: 0 10px;
-    color: #e9e4ff;
+    color: #c8b6ff;
+    margin: 0 12px;
     text-decoration: none;
+    transition: 0.3s;
 }
 
 footer a:hover {
-    text-decoration: underline;
+    color: white;
+    text-shadow: 0 0 12px #9e7aff;
 }
 
 footer p {
-    margin: 7px 0;
-    font-size: 14px;
+    color: #9993b8;
+    font-size: 13px;
 }
 
-/* スマートフォン対応 */
+/* スマートフォン */
 @media (max-width: 650px) {
-    header h1 {
-        font-size: 29px;
+    header {
+        min-height: 80vh;
+    }
+
+    header p {
+        font-size: 13px;
+        letter-spacing: 1px;
     }
 
     nav {
-        gap: 18px;
-        font-size: 14px;
+        gap: 15px;
+        padding: 15px 5px;
+    }
+
+    nav a {
+        font-size: 11px;
+        letter-spacing: 0;
     }
 
     main {
-        margin: 35px auto;
+        margin: 65px auto;
         padding: 0 18px;
     }
 
-    .intro {
-        padding: 35px 20px;
+    section {
+        margin-bottom: 90px;
     }
 
     .music-list {
         grid-template-columns: 1fr;
     }
 
-    .section-title {
-        font-size: 23px;
+    .music-card {
+        padding: 25px;
+    }
+
+    .performance-box {
+        padding: 25px;
+    }
+
+    .about-box {
+        padding: 25px;
+    }
+}
+
+/* 動きを減らす設定 */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
     }
 }
 </style>
@@ -229,63 +455,76 @@ footer p {
 <body>
 
 <header>
-    <h1>My Favorite Music</h1>
-    <p>音楽と過ごす、私のお気に入りの時間</p>
+    <div class="sub-title">WELCOME TO MY WORLD</div>
+    <h1>MY FAVORITE<br>MUSIC</h1>
+    <p>音楽がある毎日を、もっと楽しく。</p>
+
+    <div class="scroll-down">
+        SCROLL
+        <span>↓</span>
+    </div>
 </header>
 
 <nav>
-    <a href="#favorite">最近聴いた曲</a>
-    <a href="#performance">演奏した曲</a>
-    <a href="#about">About</a>
+    <a href="#favorite">FAVORITE SONGS</a>
+    <a href="#performance">MY BAND</a>
+    <a href="#about">ABOUT</a>
 </nav>
 
 <main>
 
-    <div class="intro">
-        <h2>Welcome to My Music Page</h2>
-        <p>
-            好きな音楽や、これまで演奏してきた思い出の曲を紹介します。
-            アニメソングや邦楽ロックなど、私のお気に入りを集めました。
-        </p>
-    </div>
+    <section id="favorite" class="reveal">
 
-    <section id="favorite">
-        <h2 class="section-title">♪ 最近聴いた曲</h2>
+        <div class="section-label">01 / FAVORITE</div>
+        <h2 class="section-title">最近聴いた<span>曲</span></h2>
 
         <p class="section-description">
-            私は普段、アニメの主題歌や邦楽ロックを中心に聴いています。
-            疾走感のあるサウンドや、印象に残るメロディーが好きです。
-            最近よく聴いている曲を紹介します。
+            アニメの主題歌や邦楽ロックを中心に、
+            疾走感のあるサウンドや印象に残るメロディーが好きです。
+            最近よく聴いているお気に入りのアーティストや曲を紹介します。
         </p>
+
+        <div class="equalizer">
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+            <span></span>
+        </div>
 
         <div class="music-list">
 
             <div class="music-card">
-                <span class="category">邦楽ロック</span>
+                <span class="category">J-ROCK</span>
                 <h3>シュガーソングとビターステップ</h3>
                 <p class="artist">UNISON SQUARE GARDEN</p>
             </div>
 
             <div class="music-card">
-                <span class="category">アニメソング</span>
-                <h3>オリオンをなぞる</h3>
-                <p class="artist">UNISON SQUARE GARDEN</p>
+                <span class="category">ANIME SONG</span>
+                <h3>Firework</h3>
+                <p class="artist">ちゃんみな</p>
             </div>
 
             <div class="music-card">
-                <span class="category">アニメソング</span>
+                <span class="category">ANIME SONG</span>
                 <h3>Bullet</h3>
                 <p class="artist">Cö shu Nie</p>
             </div>
 
             <div class="music-card">
-                <span class="category">邦楽ロック</span>
-                <h3>ヤバイTシャツ屋さんの楽曲</h3>
+                <span class="category">J-ROCK</span>
+                <h3>ハッピーウエディング前ソング</h3>
                 <p class="artist">ヤバイTシャツ屋さん</p>
             </div>
 
             <div class="music-card">
-                <span class="category">アニメソング</span>
+                <span class="category">J-ROCK</span>
+                <h3>ハゼ馳せる果てるまで</h3>
+                <p class="artist">ずっと真夜中でいいのに。</p>
+            </div>
+
+            <div class="music-card">
+                <span class="category">ANIME SONG</span>
                 <h3>お気に入りのアニソン</h3>
                 <p class="artist">さまざまなアーティスト</p>
             </div>
@@ -293,58 +532,117 @@ footer p {
         </div>
     </section>
 
-    <section id="performance">
-        <h2 class="section-title">♪ これまで演奏した曲</h2>
+
+    <section id="performance" class="reveal">
+
+        <div class="section-label">02 / PERFORMANCE</div>
+        <h2 class="section-title">これまで<span>演奏した曲</span></h2>
 
         <p class="section-description">
             高校から大学にかけて、ギターボーカルとして
             さまざまな楽曲を演奏してきました。
-            バンドで演奏することで、音楽を聴くだけでは味わえない楽しさや、
-            メンバーと一緒に曲を作り上げる面白さを知りました。
+            メンバーと一緒に一つの曲を作り上げる楽しさは、
+            バンドならではの魅力だと思います。
         </p>
 
         <div class="performance-box">
+
             <h3>SHISHAMO</h3>
+
             <ul>
                 <li>
                     <strong>明日も</strong>
                     <br>
                     力強く前向きな歌詞が印象的な曲。
                 </li>
+
                 <li>
                     <strong>君と夏フェス</strong>
                     <br>
                     夏らしい爽やかさと疾走感が魅力の曲。
                 </li>
             </ul>
+
+            <h3>OTHER</h3>
+
+            <ul>
+                <li>
+                    <strong>God knows...</strong>
+                    <br>
+                    力強いギターサウンドと疾走感が魅力のアニメソング。
+                </li>
+            </ul>
+
             <p>
-                どちらもバンドで演奏する楽しさを感じられる、
+                どの曲も、バンドで演奏する楽しさを感じられる
                 思い出に残っている楽曲です。
             </p>
+
         </div>
     </section>
 
-    <section id="about">
-        <h2 class="section-title">♪ About This Page</h2>
-        <p>
-            このページでは、私が普段聴いている音楽や、
-            これまでバンドで演奏してきた曲を紹介しています。
-            これからもたくさんの音楽に出会い、
-            お気に入りの曲を増やしていきたいです。
-        </p>
+
+    <section id="about" class="reveal">
+
+        <div class="section-label">03 / ABOUT</div>
+        <h2 class="section-title">ABOUT <span>ME</span></h2>
+
+        <div class="about-box">
+            <p>
+                このページでは、私が普段聴いている音楽や、
+                これまでバンドで演奏してきた曲を紹介しています。
+            </p>
+
+            <p>
+                音楽を聴くことも、演奏することも大好きです。
+                これからもたくさんの音楽に出会い、
+                お気に入りの曲を増やしていきたいです。
+            </p>
+
+            <div class="equalizer">
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
     </section>
 
 </main>
 
+
 <footer>
+    <h2>THANK YOU FOR VISITING!</h2>
+
     <p>Contact : info@example.com</p>
+
     <p>
-        <a href="https://www.instagram.com/" target="_blank">Instagram</a>
-        <a href="https://x.com/" target="_blank">X</a>
-        <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://x.com/" target="_blank" rel="noopener noreferrer">X</a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
     </p>
+
     <p>&copy; 2026 My Favorite Music</p>
 </footer>
+
+
+<script>
+/* スクロールすると要素がふわっと表示される */
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.15
+});
+
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
+</script>
 
 </body>
 </html>
