@@ -956,3 +956,640 @@ footer p {
     transform: none;
   }
 }
+
+  </head>
+<body>
+
+<header class="topbar">
+  <a class="logo" href="#top">NOISE.</a>
+
+  <button
+    class="menu-btn"
+    id="menuBtn"
+    aria-label="メニューを開く"
+    aria-expanded="false"
+  >
+    MENU ☰
+  </button>
+
+  <nav class="nav" id="nav">
+    <a href="#favorite">FAVORITE</a>
+    <a href="#played">PLAYED</a>
+    <a href="#about">ABOUT</a>
+  </nav>
+</header>
+
+<!-- メインビジュアル -->
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <p class="eyebrow">
+      MY PERSONAL MUSIC ARCHIVE / 2026
+    </p>
+
+    <h1>MY<br><span>MUSIC.</span></h1>
+
+    <p class="hero-copy">
+      音楽に、<em>夢中。</em>
+    </p>
+
+    <p class="hero-sub">
+      好きな曲も、弾いた曲も。<br>
+      音楽でできた「自分」を集めたアーカイブ。
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn" href="#favorite">
+        お気に入りを見る <span>↘</span>
+      </a>
+
+      <a class="btn ghost" href="#played">
+        演奏した曲を見る
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-stamp">
+    EST. MY WORLD
+    <strong>音楽</strong>
+    PLAY IT LOUD
+  </div>
+
+  <div class="scroll-note">
+    SCROLL TO EXPLORE ↓
+  </div>
+</header>
+
+<!-- 流れる文字 -->
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span>LISTEN TO MUSIC ✳ FEEL THE SOUND ✳ PLAY IT LOUD ✳</span>
+    <span>MY SOUNDTRACK ✳ FIND YOUR RHYTHM ✳</span>
+    <span>LISTEN TO MUSIC ✳ FEEL THE SOUND ✳ PLAY IT LOUD ✳</span>
+    <span>MY SOUNDTRACK ✳ FIND YOUR RHYTHM ✳</span>
+  </div>
+</div>
+
+<main class="wrap">
+
+<!-- お気に入りの曲 -->
+
+<section id="favorite" class="reveal">
+
+  <div class="section-intro">
+    <div class="section-head">
+
+      <div class="section-top">
+        <span class="num">01</span>
+        <span class="kicker">MY DAILY PLAYLIST</span>
+      </div>
+
+      <h2 class="section-title">
+        FAVOURITE<br>
+        <span>TRACKS.</span>
+      </h2>
+
+      <p class="jp-title">
+        何度でも聴きたくなる音楽。
+      </p>
+
+      <p class="desc">
+        最近よく聴いている、お気に入りの曲たち。<br>
+        気分にぴったりの一曲を探してみよう。
+      </p>
+    </div>
+
+    <p class="counter">
+      <span id="trackCount">06</span> TRACKS /
+      <span id="favCount">0</span> SAVED
+    </p>
+  </div>
+
+  <!-- 検索・ジャンル選択 -->
+
+  <div class="controls">
+
+    <input
+      class="search"
+      id="searchInput"
+      type="search"
+      placeholder="曲名・アーティストで検索…"
+      aria-label="曲名・アーティストで検索"
+    >
+
+    <div class="filters" aria-label="ジャンルで絞り込み">
+      <button class="filter active" data-filter="ALL">ALL</button>
+      <button class="filter" data-filter="ROCK">ROCK</button>
+      <button class="filter" data-filter="ALT">ALTERNATIVE</button>
+      <button class="filter" data-filter="J-POP">J-POP</button>
+      <button class="filter" data-filter="ANIME">ANIME</button>
+    </div>
+  </div>
+
+  <!-- 曲カード -->
+
+  <div class="music-grid" id="musicGrid">
+
+    <article
+      class="music-card"
+      data-genre="ROCK"
+      data-search="シュガーソングとビターステップ UNISON SQUARE GARDEN"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1000"
+        alt="ライブステージ"
+      >
+
+      <div class="card-top">
+        <span class="tag">TRACK 01 / ROCK</span>
+        <button class="fav" aria-label="お気に入りに追加" aria-pressed="false">♡</button>
+      </div>
+
+      <div class="music-info">
+        <span class="card-index">NO. 01</span>
+        <h3>シュガーソングとビターステップ</h3>
+        <p>UNISON SQUARE GARDEN</p>
+      </div>
+    </article>
+
+    <article
+      class="music-card"
+      data-genre="ROCK"
+      data-search="オリオンをなぞる UNISON SQUARE GARDEN"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1506157786151-b8491531f063?w=1000"
+        alt="ライブ会場"
+      >
+
+      <div class="card-top">
+        <span class="tag">TRACK 02 / ROCK</span>
+        <button class="fav" aria-label="お気に入りに追加" aria-pressed="false">♡</button>
+      </div>
+
+      <div class="music-info">
+        <span class="card-index">NO. 02</span>
+        <h3>オリオンをなぞる</h3>
+        <p>UNISON SQUARE GARDEN</p>
+      </div>
+    </article>
+
+    <article
+      class="music-card"
+      data-genre="ALT"
+      data-search="Bullet Cö shu Nie"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=1000"
+        alt="音楽を楽しむ人"
+      >
+
+      <div class="card-top">
+        <span class="tag">TRACK 03 / ALTERNATIVE</span>
+        <button class="fav" aria-label="お気に入りに追加" aria-pressed="false">♡</button>
+      </div>
+
+      <div class="music-info">
+        <span class="card-index">NO. 03</span>
+        <h3>Bullet</h3>
+        <p>Cö shu Nie</p>
+      </div>
+    </article>
+
+    <article
+      class="music-card"
+      data-genre="ROCK"
+      data-search="ヤバイTシャツ屋さん"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=1000"
+        alt="音楽フェス"
+      >
+
+      <div class="card-top">
+        <span class="tag">TRACK 04 / ROCK</span>
+        <button class="fav" aria-label="お気に入りに追加" aria-pressed="false">♡</button>
+      </div>
+
+      <div class="music-info">
+        <span class="card-index">NO. 04</span>
+        <h3>ヤバイTシャツ屋さんの楽曲</h3>
+        <p>ヤバイTシャツ屋さん</p>
+      </div>
+    </article>
+
+    <article
+      class="music-card"
+      data-genre="J-POP"
+      data-search="お気に入りの楽曲 ずっと真夜中でいいのに。"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=1000"
+        alt="ギター"
+      >
+
+      <div class="card-top">
+        <span class="tag">TRACK 05 / J-POP</span>
+        <button class="fav" aria-label="お気に入りに追加" aria-pressed="false">♡</button>
+      </div>
+
+      <div class="music-info">
+        <span class="card-index">NO. 05</span>
+        <h3>お気に入りの楽曲</h3>
+        <p>ずっと真夜中でいいのに。</p>
+      </div>
+    </article>
+
+    <article
+      class="music-card"
+      data-genre="ANIME"
+      data-search="アニソン 好きなアニメソング"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=1000"
+        alt="ライブ照明"
+      >
+
+      <div class="card-top">
+        <span class="tag">TRACK 06 / ANIME</span>
+        <button class="fav" aria-label="お気に入りに追加" aria-pressed="false">♡</button>
+      </div>
+
+      <div class="music-info">
+        <span class="card-index">NO. 06</span>
+        <h3>アニソン</h3>
+        <p>好きなアニメソング</p>
+      </div>
+    </article>
+
+    <p class="empty" id="emptyMessage" hidden>
+      見つかりませんでした。別のキーワードでも探してみてね。
+    </p>
+
+  </div>
+
+  <!-- 写真ギャラリー -->
+
+  <div class="photo-strip">
+    <img
+      src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=900"
+      alt="ライブの照明"
+    >
+
+    <img
+      src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=900"
+      alt="ライブの観客"
+    >
+
+    <img
+      src="https://images.unsplash.com/photo-1501612780327-45045538702b?w=900"
+      alt="音楽フェス"
+    >
+  </div>
+
+</section>
+</main>
+
+<!-- 2つ目の流れる文字 -->
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span>MY SOUNDTRACK ✳ MY SOUNDTRACK ✳ MY SOUNDTRACK ✳</span>
+    <span>EVERY SONG HAS A STORY ✳</span>
+    <span>MY SOUNDTRACK ✳ MY SOUNDTRACK ✳ MY SOUNDTRACK ✳</span>
+    <span>EVERY SONG HAS A STORY ✳</span>
+  </div>
+</div>
+
+<main class="wrap">
+
+<!-- 演奏した曲 -->
+
+<section id="played" class="played reveal">
+
+  <div class="section-head">
+
+    <div class="section-top">
+      <span class="num">02</span>
+      <span class="kicker">MY MUSIC HISTORY</span>
+    </div>
+
+    <h2 class="section-title">
+      PLAYED<br>
+      <span>SONGS.</span>
+    </h2>
+
+    <p class="jp-title">
+      自分で演奏した、大切な曲たち。
+    </p>
+
+    <p class="desc">
+      練習した時間も、弾けた瞬間も。<br>
+      ひとつひとつが、自分だけの音楽の記録。
+    </p>
+
+  </div>
+
+  <div class="played-grid">
+
+    <article class="played-card">
+      <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=600" alt="ギター">
+      <div class="played-info">
+        <div class="played-number">01</div>
+        <h3>明日も</h3>
+        <p>SHISHAMO</p>
+      </div>
+    </article>
+
+    <article class="played-card">
+      <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?w=600" alt="ライブ">
+      <div class="played-info">
+        <div class="played-number">02</div>
+        <h3>君と夏フェス</h3>
+        <p>SHISHAMO</p>
+      </div>
+    </article>
+
+    <article class="played-card">
+      <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600" alt="ステージ">
+      <div class="played-info">
+        <div class="played-number">03</div>
+        <h3>God knows...</h3>
+        <p>アニメ『涼宮ハルヒの憂鬱』関連楽曲</p>
+      </div>
+    </article>
+
+    <article class="played-card">
+      <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=600" alt="音楽">
+      <div class="played-info">
+        <div class="played-number">04</div>
+        <h3>夜に駆ける</h3>
+        <p>YOASOBI</p>
+      </div>
+    </article>
+
+    <article class="played-card">
+      <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=600" alt="ライブ会場">
+      <div class="played-info">
+        <div class="played-number">05</div>
+        <h3>怪物</h3>
+        <p>YOASOBI</p>
+      </div>
+    </article>
+
+    <article class="played-card">
+      <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=600" alt="ライブ照明">
+      <div class="played-info">
+        <div class="played-number">06</div>
+        <h3>君と羊と青</h3>
+        <p>RADWIMPS</p>
+      </div>
+    </article>
+
+    <article class="played-card">
+      <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=600" alt="観客">
+      <div class="played-info">
+        <div class="played-number">07</div>
+        <h3>あつまれ！パーティーピーポー</h3>
+        <p>ヤバイTシャツ屋さん</p>
+      </div>
+    </article>
+
+    <article class="played-card">
+      <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600" alt="ステージ照明">
+      <div class="played-info">
+        <div class="played-number">08</div>
+        <h3>だから僕は音楽を辞めた</h3>
+        <p>ヨルシカ</p>
+      </div>
+    </article>
+
+    <article class="played-card">
+      <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=600" alt="ギター演奏">
+      <div class="played-info">
+        <div class="played-number">09</div>
+        <h3>秒針を噛む</h3>
+        <p>ずっと真夜中でいいのに。</p>
+      </div>
+    </article>
+
+  </div>
+
+  <p class="note">
+    ※ 掲載している曲名・アーティスト情報は、元のアーカイブの内容を引き継いでいます。
+  </p>
+
+</section>
+
+<!-- メッセージ -->
+
+<div class="statement reveal">
+  <h2>FEEL<br>THE<br>SOUND.</h2>
+  <p>音楽がある。それだけでいい。</p>
+</div>
+
+<!-- ABOUT -->
+
+<section id="about" class="about reveal">
+
+  <div class="about-image">
+    <img
+      src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=1000"
+      alt="音楽スタジオ"
+    >
+  </div>
+
+  <div class="about-text">
+
+    <div class="section-top">
+      <span class="num">03</span>
+      <span class="kicker">WHO AM I?</span>
+    </div>
+
+    <h2>
+      音楽に<br>
+      <span>夢中な</span><br>
+      毎日。
+    </h2>
+
+    <p>
+      音楽が大好き。<br>
+      聴くのも、演奏するのも、ライブの空気を感じるのも好き。<br>
+      ロック、アニソン、いろいろなジャンルの音楽を楽しんでいます。<br>
+      ここは、そんなお気に入りを集めた自分だけの音楽アーカイブ。
+    </p>
+
+    <div class="about-tags">
+      <span>ROCK</span>
+      <span>J-POP</span>
+      <span>ANIME SONG</span>
+      <span>LIVE</span>
+      <span>GUITAR</span>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- フッター -->
+
+<footer>
+  <div class="footer-big">THANK YOU.</div>
+  <p>THIS IS MY MUSIC WORLD / KEEP LISTENING.</p>
+</footer>
+
+<button class="backtop" id="backtop" aria-label="ページの先頭へ">
+  ↑
+</button>
+
+<!-- JavaScript -->
+
+<script>
+const cards = [...document.querySelectorAll('.music-card')];
+const filters = [...document.querySelectorAll('.filter')];
+const search = document.getElementById('searchInput');
+const empty = document.getElementById('emptyMessage');
+
+let activeFilter = 'ALL';
+
+/* 検索とジャンル絞り込み */
+
+function updateCards() {
+  const q = search.value.trim().toLowerCase();
+  let visible = 0;
+
+  cards.forEach(card => {
+    const matchGenre =
+      activeFilter === 'ALL' ||
+      card.dataset.genre === activeFilter;
+
+    const matchText =
+      card.dataset.search.toLowerCase().includes(q);
+
+    card.hidden = !(matchGenre && matchText);
+
+    if (!card.hidden) {
+      visible++;
+    }
+  });
+
+  empty.hidden = visible !== 0;
+
+  document.getElementById('trackCount').textContent =
+    String(visible).padStart(2, '0');
+}
+
+/* ジャンルボタン */
+
+filters.forEach(btn => {
+  btn.addEventListener('click', () => {
+
+    filters.forEach(b => b.classList.remove('active'));
+
+    btn.classList.add('active');
+
+    activeFilter = btn.dataset.filter;
+
+    updateCards();
+  });
+});
+
+/* 検索入力 */
+
+search.addEventListener('input', updateCards);
+
+/* お気に入りボタン */
+
+document.querySelectorAll('.fav').forEach(btn => {
+
+  btn.addEventListener('click', () => {
+
+    const on = btn.classList.toggle('on');
+
+    btn.textContent = on ? '♥' : '♡';
+
+    btn.setAttribute('aria-pressed', String(on));
+
+    btn.setAttribute(
+      'aria-label',
+      on ? 'お気に入りから削除' : 'お気に入りに追加'
+    );
+
+    document.getElementById('favCount').textContent =
+      document.querySelectorAll('.fav.on').length;
+
+  });
+
+});
+
+/* スマホ用メニュー */
+
+const menuBtn = document.getElementById('menuBtn');
+const nav = document.getElementById('nav');
+
+menuBtn.addEventListener('click', () => {
+
+  const open = nav.classList.toggle('open');
+
+  menuBtn.setAttribute('aria-expanded', String(open));
+
+});
+
+nav.querySelectorAll('a').forEach(a => {
+
+  a.addEventListener('click', () => {
+
+    nav.classList.remove('open');
+
+    menuBtn.setAttribute('aria-expanded', 'false');
+
+  });
+
+});
+
+/* スクロール時の表示アニメーション */
+
+const observer = new IntersectionObserver(
+  entries => entries.forEach(entry => {
+
+    if (entry.isIntersecting) {
+
+      entry.target.classList.add('show');
+
+      observer.unobserve(entry.target);
+
+    }
+
+  }),
+  { threshold: .12 }
+);
+
+document.querySelectorAll('.reveal').forEach(el => {
+  observer.observe(el);
+});
+
+/* ページトップボタン */
+
+const backtop = document.getElementById('backtop');
+
+window.addEventListener(
+  'scroll',
+  () => {
+    backtop.classList.toggle('show', window.scrollY > 500);
+  },
+  { passive: true }
+);
+
+backtop.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+</script>
+
+</body>
+</html>
